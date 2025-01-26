@@ -1,0 +1,53 @@
+def calculator():
+    print("""Hello User
+I am your personal calculator
+What do you wanna do today?
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division""")
+    A = "Addition"
+    B = "Subtraction"
+    C = "Multiplication"
+    D = "Division"
+
+    while True:
+        try:
+            put = int(input("Choose operation by entering a number from 1 to 4: "))
+            if put not in [1, 2, 3, 4]:
+                print("It seems like you chose none of the choices. Try again.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please choose one of the options: 1, 2, 3, or 4.")
+    
+    if put == 1:
+        print(f"Okay, your choice is {A}\nNow give me numbers a and b")
+        a = int(input("a: "))
+        b = int(input("now give me number b: "))
+        c = a + b
+    elif put == 2:
+        print(f"Okay, your choice is {B}\nNow give me numbers a and b")
+        a = int(input("a: "))
+        b = int(input("now give me number b: "))
+        c = a - b
+    elif put == 3:
+        print(f"Okay, your choice is {C}\nNow give me numbers a and b")
+        a = int(input("a: "))
+        b = int(input("now give me number b: "))
+        c = a * b
+    elif put == 4:
+        print(f"Okay, your choice is {D}\nNow give me numbers a and b")
+        a = int(input("a: "))
+        b = int(input("now give me number b: "))
+        if b == 0:
+            print("Division by zero is not allowed. Try again.")
+            b = int(input("b: "))
+        c = a / b
+
+    print(f"Okay bro.\nAnswer is {c}\nDo you want something else?")
+    answer = input("Yes or no? ").lower()
+    if answer in ["yes", "yeah", "y"]:  # Fixed this line
+        calculator()  # Restart the function
+    else:
+        print("Goodbye, see you!")
